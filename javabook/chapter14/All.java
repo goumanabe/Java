@@ -16,32 +16,28 @@ import javax.sql.DataSource;
 
 import tool.Page;
 
-/**
- * Servlet implementation class All
- */
-@WebServlet("/chapter14/all")
+@WebServlet(urlPatterns= {"/chapter14/all"})
 public class All extends HttpServlet {
-       
-
 	public void doGet(
 			HttpServletRequest request, HttpServletResponse response
 			) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-			
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
 		Page.header(out);
-		
+
 		try {
 			InitialContext ic = new InitialContext();
 			DataSource ds = (DataSource)ic.lookup(
 					"java:/comp/env/jdbc/book");
 			Connection con = ds.getConnection();
-			
+
 			PreparedStatement st = con.prepareStatement(
 					"select * from product");
 			ResultSet rs = st.executeQuery();
-			
+
 			while(rs.next()) {
+				System.out.println(rs.getString("name"));
 				out.println(rs.getInt("id"));
 				out.println(":");
 				out.println(rs.getString("name"));
@@ -49,10 +45,8 @@ public class All extends HttpServlet {
 				out.println(rs.getInt("price"));
 				out.println("<br>");
 			}
-			
 			st.close();
 			con.close();
-			
 		}catch (Exception e) {
 			e.printStackTrace(out);
 		}
