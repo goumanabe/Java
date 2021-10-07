@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btnTime"
+        android:layout_width="match_parent"
+        android:layout_height="86dp"
+        android:onClick="btnCurrent_onClick"
+        android:text="@string/btnTime" />
+
+    <Button
+        android:id="@+id/hoge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:longClickable="false"
+        android:onClick="btnCurrent_onClick2"
+        android:text="hoge" />
+
+    <Button
+        android:id="@+id/btnTime2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ボタン２" />
+
+    <TextView
+        android:id="@+id/textTime"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:gravity="center"
+        android:text="@string/textTIme"
+        android:textAlignment="center"
+        android:textSize="36sp" />
+
+    <ImageSwitcher
+        android:id="@+id/showImage"
+        android:layout_width="match_parent"
+        android:layout_height="184dp" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="送信" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="286dp"
+        app:srcCompat="@drawable/panda1" />
+
+</LinearLayout>
